@@ -1,10 +1,13 @@
 package org.tekcamp.springtek.beans.calc;
 
+import org.springframework.stereotype.Component;
+
 import java.util.function.BiFunction;
 
-class Subtract implements BiFunction {
+@Component
+public class Subtract implements BiFunction<Integer,Integer,Integer> {
 	@Override
-	public Object apply(Object o1, Object o2) {
-		return null;
+	public Integer apply(Integer x, Integer y) {
+		return x - y;
 	}
 }
