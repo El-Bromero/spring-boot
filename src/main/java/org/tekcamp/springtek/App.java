@@ -6,7 +6,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+
+import java.util.Arrays;
 
 @SpringBootApplication
 public class App {
@@ -18,7 +21,11 @@ public class App {
 	private String appName;
 
 	public static void main(String[] args) {
-		SpringApplication.run(App.class, args);
+		ApplicationContext container = SpringApplication.run(App.class, args);
+//		String[] beans = container.getBeanDefinitionNames();
+//		System.out.println(Arrays.toString(beans));
+//		int beanCount = container.getBeanDefinitionCount();
+//		System.out.println(beanCount);
 	}
 
 	@Bean

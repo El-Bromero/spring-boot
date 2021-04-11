@@ -8,16 +8,16 @@ import org.springframework.stereotype.Component;
 @Configuration
 public class Calculator {
 	@Autowired
-	private Add add = new Add();
+	private Add add;
 
 	@Autowired
-	private Subtract subtract = new Subtract();
+	private Subtract subtract;
 
 	@Autowired
-	private Multiply multiply = new Multiply();
+	private Multiply multiply;
 
 	@Autowired
-	private Divide divide = new Divide();
+	private Divide divide;
 
 
 	public int add(int x, int y) {
