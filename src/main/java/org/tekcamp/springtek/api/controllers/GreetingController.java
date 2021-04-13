@@ -19,4 +19,19 @@ public class GreetingController {
 		return greetingService.greetEnglish();
 	}
 
+	@GetMapping(path = {"/spanish","/spa"})
+	public String saludosSpring() {
+		return greetingService.greetSpanish();
+	}
+
+	@GetMapping(path = {"/french","/fre"})
+	public String salutSpring() {
+		return greetingService.greetFrench();
+	}
+
+	@GetMapping(path = {"/italian","/ita"})
+	public String salutiSpring() {
+		return greetingService.greetItalian();
+	}
+
 }
