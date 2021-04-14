@@ -62,4 +62,12 @@ public class BookRepo {
         }
         return null;
     }
+
+    public void deleteBookByIsbn(String isbn) {
+        books.removeIf(book -> book.getIsbn().equals(isbn));
+    }
+
+    public void deleteBookByTitle(String title) {
+        books.removeIf(book -> book.getTitle().equals(title));
+    }
 }

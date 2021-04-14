@@ -43,4 +43,14 @@ public class BookController {
     public Book updateBookByTitle(@PathVariable String title, @RequestBody Book book) {
         return bookService.updateBookByTitle(title, book);
     }
+
+    @DeleteMapping(value = "/isbn/{isbn}")
+    public void deleteBookByIsbn(@PathVariable String isbn) {
+        bookService.deleteBookByIsbn(isbn);
+    }
+
+    @DeleteMapping(value = "/title/{title}")
+    public void deleteBookByTitle(@PathVariable String title) {
+        bookService.deleteBookByTitle(title);
+    }
 }

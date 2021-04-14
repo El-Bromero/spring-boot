@@ -36,4 +36,12 @@ public class BookService {
     public Book updateBookByTitle(String title, Book book) {
         return bookRepo.updateBookByTitle(title, book);
     }
+
+    public void deleteBookByIsbn(String isbn) {
+        bookRepo.deleteBookByIsbn(isbn);
+    }
+
+    public void deleteBookByTitle(String title) {
+        bookRepo.deleteBookByTitle(title);
+    }
 }
