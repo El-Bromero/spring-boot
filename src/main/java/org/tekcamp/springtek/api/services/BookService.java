@@ -17,15 +17,23 @@ public class BookService {
         return bookRepo.findAllBooks();
     }
 
-    public Book createBook(Book newBook) {
-        return bookRepo.createBook(newBook);
-    }
-
     public Book getBookByIsbn(String isbn) {
         return bookRepo.getBookByIsbn(isbn);
     }
 
     public Book getBookByTitle(String title) {
         return bookRepo.getBookByTitle(title);
+    }
+
+    public Book createBook(Book newBook) {
+        return bookRepo.createBook(newBook);
+    }
+
+    public Book updateBookByIsbn(String isbn, Book book) {
+        return bookRepo.updateBookByIsbn(isbn, book);
+    }
+
+    public Book updateBookByTitle(String title, Book book) {
+        return bookRepo.updateBookByTitle(title, book);
     }
 }

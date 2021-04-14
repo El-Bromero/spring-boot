@@ -15,14 +15,9 @@ public class BookRepo {
         return this.books;
     }
 
-    public Book createBook(Book newBook) {
-        books.add(newBook);
-        return books.get(books.size()-1);
-    }
-
     public Book getBookByIsbn(String isbn) {
         for (Book book : books) {
-            if (book.getIsbn() == isbn)
+            if (book.getIsbn().equals(isbn))
             {
                 return book;
             }
@@ -32,8 +27,36 @@ public class BookRepo {
 
     public Book getBookByTitle(String title) {
         for (Book book : books) {
-            if (book.getTitle() == title)
+            if (book.getTitle().equals(title))
             {
+                return book;
+            }
+        }
+        return null;
+    }
+
+    public Book createBook(Book newBook) {
+        books.add(newBook);
+        return books.get(books.size()-1);
+    }
+
+    public Book updateBookByIsbn(String isbn, Book updateBook) {
+        for (Book book : books) {
+            if (book.getIsbn().equals(isbn)) {
+                book.setTitle(updateBook.getTitle());
+                book.setAuthor(updateBook.getAuthor());
+                book.setCourse(updateBook.getCourse());
+                return book;
+            }
+        }
+        return null;
+    }
+
+    public Book updateBookByTitle(String title, Book updateBook) {
+        for (Book book : books) {
+            if (book.getTitle().equals(title)) {
+                book.setAuthor(updateBook.getAuthor());
+                book.setCourse(updateBook.getCourse());
                 return book;
             }
         }
