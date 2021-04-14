@@ -19,6 +19,16 @@ public class BookController {
         return bookService.findAllBooks();
     }
 
+    @GetMapping(path = "/{isbn}")
+    public Book getBookByIsbn(@PathVariable String isbn) {
+        return bookService.getBookByIsbn(isbn);
+    }
+
+    @GetMapping(path = "/{title}")
+    public Book getBookByTitle(@PathVariable String title) {
+        return bookService.getBookByTitle(title);
+    }
+
     @PostMapping
     public Book createBook(@RequestBody Book newBook) {
         return bookService.createBook(newBook);

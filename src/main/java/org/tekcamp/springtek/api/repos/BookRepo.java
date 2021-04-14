@@ -19,4 +19,24 @@ public class BookRepo {
         books.add(newBook);
         return books.get(books.size()-1);
     }
+
+    public Book getBookByIsbn(String isbn) {
+        for (Book book : books) {
+            if (book.getIsbn() == isbn)
+            {
+                return book;
+            }
+        }
+        return null;
+    }
+
+    public Book getBookByTitle(String title) {
+        for (Book book : books) {
+            if (book.getTitle() == title)
+            {
+                return book;
+            }
+        }
+        return null;
+    }
 }

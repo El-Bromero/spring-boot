@@ -20,4 +20,12 @@ public class BookService {
     public Book createBook(Book newBook) {
         return bookRepo.createBook(newBook);
     }
+
+    public Book getBookByIsbn(String isbn) {
+        return bookRepo.getBookByIsbn(isbn);
+    }
+
+    public Book getBookByTitle(String title) {
+        return bookRepo.getBookByTitle(title);
+    }
 }
