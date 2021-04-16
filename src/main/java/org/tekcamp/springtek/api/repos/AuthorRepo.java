@@ -43,10 +43,6 @@ public class AuthorRepo {
     }
 
     public void deleteAuthorById(int id) {
-        for (Author author : authors) {
-            if (author.getId() == id) {
-                authors.remove(author);
-            }
-        }
+        authors.removeIf(author -> author.getAuthor_id() == id);
     }
 }
