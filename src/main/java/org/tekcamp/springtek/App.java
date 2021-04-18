@@ -35,10 +35,6 @@ public class App {
 
 	public static void main(String[] args) {
 		ApplicationContext container = SpringApplication.run(App.class, args);
-//		String[] beans = container.getBeanDefinitionNames();
-//		System.out.println(Arrays.toString(beans));
-//		int beanCount = container.getBeanDefinitionCount();
-//		System.out.println(beanCount);
 	}
 
 	@Bean

@@ -6,14 +6,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
 import java.util.List;
 
-@Component
-@AllArgsConstructor @NoArgsConstructor
-@Getter @Setter
+@Entity
+@Table(name = "author")
+@NoArgsConstructor @Getter @Setter
 public class Author {
-    private int author_id;
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer author_id;
     private String firstName;
     private String lastName;
-    private List<String> books;
+
+    @OneToMany(targetEntity = Book.class, mappedBy = "author")
+    private List<Book> books;
 }

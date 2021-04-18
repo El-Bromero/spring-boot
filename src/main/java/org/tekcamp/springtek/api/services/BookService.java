@@ -3,45 +3,44 @@ package org.tekcamp.springtek.api.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tekcamp.springtek.api.entities.Book;
-import org.tekcamp.springtek.api.repos.BookRepo;
+import org.tekcamp.springtek.api.repos.iBookRepo;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
 
     @Autowired
-    BookRepo bookRepo;
+    iBookRepo bookRepo;
 
-    public List<Book> findAllBooks() {
-        return bookRepo.findAllBooks();
+    public List<Book> getBooks() {
+        Iterable<Book> bookIterable = bookRepo.findAll();
+        List<Book> bookList = new ArrayList<>();
+        bookIterable.forEach(bookList::add);
+        return bookList;
     }
 
-    public Book getBookByIsbn(String isbn) {
-        return bookRepo.getBookByIsbn(isbn);
+    public Optional<Book> getBookById(int bookID) {
+        return bookRepo.findById(bookID);
     }
 
-    public Book getBookByTitle(String title) {
-        return bookRepo.getBookByTitle(title);
+    public Book updateBook(int bookID, Book bookInfo) {
+        Optional<Book> oBook = getBookById(bookID);
+
+        if(oBook.isPresent()) {
+            Book modifiedBook = oBook.get();
+            String updatedBookTitle = bookInfo.getTitle();
+            String updatedBookCourse = bookInfo.getCourse();
+            modifiedBook.setTitle(updatedBookTitle);
+            modifiedBook.setCourse(updatedBookCourse);
+            return bookRepo.save(modifiedBook);
+        }
+        return bookInfo;
     }
 
-    public Book createBook(Book newBook) {
-        return bookRepo.createBook(newBook);
-    }
-
-    public Book updateBookByIsbn(String isbn, Book book) {
-        return bookRepo.updateBookByIsbn(isbn, book);
-    }
-
-    public Book updateBookByTitle(String title, Book book) {
-        return bookRepo.updateBookByTitle(title, book);
-    }
-
-    public void deleteBookByIsbn(String isbn) {
-        bookRepo.deleteBookByIsbn(isbn);
-    }
-
-    public void deleteBookByTitle(String title) {
-        bookRepo.deleteBookByTitle(title);
+    public Book createBook(Book book) {
+        return bookRepo.save(book);
     }
 }

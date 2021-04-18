@@ -6,6 +6,7 @@ import org.tekcamp.springtek.api.entities.Author;
 import org.tekcamp.springtek.api.services.AuthorService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/authors")
@@ -16,11 +17,11 @@ public class AuthorController {
 
     @GetMapping
     public List<Author> getAllAuthors() {
-        return authorService.findAllAuthors();
+        return authorService.getAuthors();
     }
 
     @GetMapping(path = "/id/{id}")
-    public Author getAuthorById(@PathVariable int id) {
+    public Optional<Author> getAuthorById(@PathVariable int id) {
         return authorService.getAuthorById(id);
     }
 
@@ -31,11 +32,11 @@ public class AuthorController {
 
     @PutMapping(value = "/id/{id}")
     public Author updateAuthorById(@PathVariable int id, @RequestBody Author author) {
-        return authorService.updateAuthorById(id, author);
+        return authorService.updateAuthor(id, author);
     }
 
-    @DeleteMapping(value = "/id/{id}")
-    public void deleteAuthorById(@PathVariable int id) {
-        authorService.deleteAuthorById(id);
-    }
+//    @DeleteMapping(value = "/id/{id}")
+//    public void deleteAuthorById(@PathVariable int id) {
+//        authorService.deleteAuthorById(id);
+//    }
 }
