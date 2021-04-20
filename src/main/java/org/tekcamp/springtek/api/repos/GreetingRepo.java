@@ -5,5 +5,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class GreetingRepo {
 	@Getter private final String helloEng = "Greetings from TEKcamp!";
-	//add additional greeting data here
+
+
+	@Getter private final String saludosSpa = "¡Saludos! de TEKcamp";
+
+	@Getter private final String salutFre = "Salut! depuis TEKcamp";
+
+	@Getter private final String salutiIta = "Saluti! da TEKcamp";
 }

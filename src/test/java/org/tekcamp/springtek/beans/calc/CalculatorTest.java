@@ -24,4 +24,28 @@ class CalculatorTest {
 		assertEquals(expected,actual);
 	}
 
+	@ParameterizedTest
+	@CsvSource({"1,1,0","4,2,2","20,0,20","0,0,0","-100,-1000,900"})
+	void subtract(int x, int y, int s) {
+		int expected = s;
+		int actual = calc.subtract(x,y);
+		assertEquals(expected,actual);
+	}
+
+	@ParameterizedTest
+	@CsvSource({"1,1,1","4,2,2","0,20,0","12,2,6","-100,100,-1"})
+	void divide(int x, int y, int s) {
+		int expected = s;
+		int actual = calc.divide(x,y);
+		assertEquals(expected,actual);
+	}
+
+	@ParameterizedTest
+	@CsvSource({"1,2,2","4,2,8","20,0,0","0,0,0","-100,-1000,100000"})
+	void multiply(int x, int y, int s) {
+		int expected = s;
+		int actual = calc.multiply(x,y);
+		assertEquals(expected,actual);
+	}
+
 }

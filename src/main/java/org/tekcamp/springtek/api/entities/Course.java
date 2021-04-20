@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 @Component
 @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter
-public class Book {
-	private String isbn;
-	private String title;
-	private String author;
-	private String course;
+public class Course {
+    private int courseID;
+    private String name;
+    private int credits;
+    private String instructor;
 }

@@ -14,4 +14,15 @@ public class GreetingService {
 		return greetingRepo.getHelloEng();
 	}
 
+	public String greetSpanish() {
+		return greetingRepo.getSaludosSpa();
+	}
+
+	public String greetFrench() {
+		return greetingRepo.getSalutFre();
+	}
+
+	public String greetItalian() {
+		return greetingRepo.getSalutiIta();
+	}
 }
